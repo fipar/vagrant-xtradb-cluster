@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :node1 do |node1_config|
 	node1_config.vm.box = 'centos6'
-	node1_config.vm.box_url = 'http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box'
+	node1_config.vm.box_url = 'https://dl.dropbox.com/u/7225008/Vagrant/CentOS-6.3-x86_64-minimal.box' 
 	node1_config.vm.hostname = 'node1'
 	node1_config.vm.provider :virtualbox do |vb|
 		vb.customize ["modifyvm", :id, "--memory", "256", "--cpuexecutioncap", "60"] 
@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :node2 do |node2_config|
 	node2_config.vm.box = 'centos6'
-	node2_config.vm.box_url = 'http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box'
+	node2_config.vm.box_url = 'https://dl.dropbox.com/u/7225008/Vagrant/CentOS-6.3-x86_64-minimal.box' 
 	node2_config.vm.hostname = 'node2'
 	node2_config.vm.provider :virtualbox do |vb|
 		vb.customize ["modifyvm", :id, "--memory", "256", "--cpuexecutioncap", "60"] 
@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :node3 do |node3_config|
 	node3_config.vm.box = 'centos6'
-	node3_config.vm.box_url = 'http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box'
+	node3_config.vm.box_url = 'https://dl.dropbox.com/u/7225008/Vagrant/CentOS-6.3-x86_64-minimal.box' 
 	node3_config.vm.hostname = 'node3'
 	node3_config.vm.provider :virtualbox do |vb|
 		vb.customize ["modifyvm", :id, "--memory", "256", "--cpuexecutioncap", "60"] 
