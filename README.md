@@ -13,6 +13,7 @@ setup
 ===
 
   vagrant up
+  
   ./bootstrap.sh
 
 usage
