@@ -13,6 +13,7 @@ Vagrant.configure("2") do |config|
 	node1_config.vm.network :private_network, ip: "192.168.70.2"
 	node1_config.vm.provision :puppet do |node1_puppet|
 		node1_puppet.options = '--verbose'
+		node1_puppet.module_path= "modules"
 	end
    end
 
@@ -26,6 +27,7 @@ Vagrant.configure("2") do |config|
 	node2_config.vm.network :private_network, ip: "192.168.70.3"
 	node2_config.vm.provision :puppet do |node2_puppet|
 		node2_puppet.options = '--verbose'
+		node2_puppet.module_path= "modules"
 	end
    end
 
@@ -39,6 +41,7 @@ Vagrant.configure("2") do |config|
 	node3_config.vm.network :private_network, ip: "192.168.70.4"
 	node3_config.vm.provision :puppet do |node3_puppet|
 		node3_puppet.options = '--verbose'
+		node3_puppet.module_path= "modules"
 	end
    end
 

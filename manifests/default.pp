@@ -29,6 +29,26 @@ class percona {
                         ensure => "present";
 
         }
+# include the my.cnf file
+
+	file {
+		"/etc/my.cnf":
+			ensure => present,
+			content => template("/tmp/vagrant-puppet/modules-0/percona/templates/my.cnf.erb"),
+	}
+
+# init the datadir
+	exec { "/usr/bin/mysql_install_db --datadir /var/lib/mysql":
+		creates => "/var/lib/mysql/mysql/user.MYD",
+		logoutput => true,
+		require => Package['MySQL-server'],
+	} 
+
+# start mysql
+	exec { "/etc/init.d/mysql start": 
+		logoutput => true,
+		require => [ Package['MySQL-server'], Exec['/usr/bin/mysql_install_db --datadir /var/lib/mysql'] ]	
+	}
 
 }
 
@@ -43,14 +63,8 @@ node node2 inherits default {
 
 }
 
-node node3 {
-
-}
-
-/*
 node node3 inherits default {
 
 }
-*/
 
 
