@@ -45,14 +45,17 @@ class percona {
 	} 
 
 # start mysql
-	exec { "/etc/init.d/mysql start": 
+#	exec { "/etc/init.d/mysql start": 
+#		logoutput => true,
+#		require => [ Package['MySQL-server'], Exec['/usr/bin/mysql_install_db --datadir /var/lib/mysql'] ]	
+#	}
+
+
+# stop iptables 
+	exec { "/etc/init.d/iptables stop":
 		logoutput => true,
-		require => [ Package['MySQL-server'], Exec['/usr/bin/mysql_install_db --datadir /var/lib/mysql'] ]	
 	}
-
 }
-
-
 ## individual nodes
 
 node node1 inherits default {
