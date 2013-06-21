@@ -12,9 +12,9 @@ requirements
 setup
 ===
 
-  vagrant up
-  
-  ./bootstrap.sh
+  ./run_me_first.sh 
+  # that runs vagrant up and then bootstrap.sh
+  # you can reset everything with reinit.sh, and manually bootstrap the cluster with boostrap.sh later, if needed. 
 
 usage
 ===
