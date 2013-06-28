@@ -44,6 +44,13 @@ class percona {
 		require => Package['MySQL-server'],
 	} 
 
+
+# fetch myq_status
+
+       exec { "/usr/bin/wget https://github.com/jayjanssen/myq_gadgets/raw/master/MySQL_Script_Utils.pm -O /usr/local/bin/MySQL_Script_Utils.pm && /usr/bin/wget https://raw.github.com/jayjanssen/myq_gadgets/master/myq_status -O /usr/local/bin/myq_status && chmod 777 /usr/local/bin/myq_status":
+		logoutput => true
+	}
+
 # start mysql
 #	exec { "/etc/init.d/mysql start": 
 #		logoutput => true,
@@ -58,16 +65,25 @@ class percona {
 }
 ## individual nodes
 
-node node1 inherits default {
-
+node pxc inherits default {
+# start mysql in bootstrap mode
+	exec { "/etc/init.d/mysql bootstrap-pxc":
+		logoutput => true,
+	}
 }
 
-node node2 inherits default {
-
+node pxc_node2 inherits default {
+# start mysql 
+	 exec { "/etc/init.d/mysql start": 
+		logoutput => true,
+	}
 }
 
-node node3 inherits default {
-
+node pxc_node3 inherits default {
+# start mysql
+	exec { "/etc/init.d/mysql start":
+		logoutput => true,
+	}
 }
 
 

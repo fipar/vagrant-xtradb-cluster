@@ -12,9 +12,7 @@ requirements
 setup
 ===
 
-  ./run_me_first.sh 
-  # that runs vagrant up and then bootstrap.sh
-  # you can reset everything with reinit.sh, and manually bootstrap the cluster with boostrap.sh later, if needed. 
+  vagrant up 
 
 usage
 ===
@@ -23,4 +21,5 @@ You can connect to <nodename> like so:
   vagrant ssh <nodename>
 
 And then run the mysql CLI as you would normally
+Nodes are called pxc_node1, pxc_node2 and pxc_node3
  
