@@ -65,21 +65,21 @@ class percona {
 }
 ## individual nodes
 
-node pxc inherits default {
+node node1 inherits default {
 # start mysql in bootstrap mode
 	exec { "/etc/init.d/mysql bootstrap-pxc":
 		logoutput => true,
 	}
 }
 
-node pxc_node2 inherits default {
+node node2 inherits default {
 # start mysql 
 	 exec { "/etc/init.d/mysql start": 
 		logoutput => true,
 	}
 }
 
-node pxc_node3 inherits default {
+node node3 inherits default {
 # start mysql
 	exec { "/etc/init.d/mysql start":
 		logoutput => true,
